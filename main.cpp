@@ -6,4 +6,5 @@ using namespace std;
 int main() {
 	User a;
 	a.signUp();
+	cout << a.getUserId();
 }
