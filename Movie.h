@@ -21,24 +21,24 @@ public:
 		return moviePrice;
 	}
 
-	void addMovie() {
+	void addMovie(string name, int price) {
 		string line;
 		fstream fo;
 		fstream fo2;
 		int c = 0;
-		cout << "Enter Movie name: ";
+		//cout << "Enter Movie name: ";
 		fo.open("MovieName.txt", ios::in|ios::out|ios::app);
-		getline(cin , line);
-		fo << line << endl;
+		//getline(cin , line);
+		fo << name << endl;
 		fo.seekg(0, ios::beg);
 		while(fo) {
 			getline(fo, line);
 			c++;
 		}
 		fo2.open("MoviePrice.txt", ios::in|ios::out|ios::app);
-		cout << "Enter price ticket for this movie: ";
-		getline(cin , line);
-		fo2 << line << endl;
+		//cout << "Enter price ticket for this movie: ";
+		//getline(cin , line);
+		fo2 << price << endl;
 		cout << "MovieId: " << c-1 << endl;
 	}
 

@@ -79,7 +79,13 @@ int main() {
 					}
 				}
 				if(s == "2") {
-					m.addMovie();
+					string name;
+					int price;
+					cout << "Enter name of movie: " ;
+					cin >> name;
+					cout << "Enter price per ticket of movie: ";
+					cin >> price;
+					m.addMovie(name, price);
 				}
 				if(s == "3") {
 
