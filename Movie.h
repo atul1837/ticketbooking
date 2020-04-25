@@ -30,13 +30,17 @@ public:
 		string moname, moprice;
 		int c = 0;
 		fstream fo, fo2;
-		system("clear");
+		//system("clear");
 		fo.open("MovieName.txt", ios::in|ios::out|ios::app);
 		fo2.open("MoviePrice.txt", ios::in|ios::out|ios::app);
 		while(fo && fo2) {
 			c++;
 			getline(fo, moname);
 			getline(fo2, moprice);
+			for(int i= 0;i<60;i++) {
+				cout << "-";
+			}
+			cout << endl;
 			cout << "MovieId: " << c << endl << "Movie Name: " << moname << endl << "Movie Price: " <<moprice << endl;
 		}
 	}

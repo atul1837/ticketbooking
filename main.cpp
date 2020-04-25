@@ -9,6 +9,7 @@ int main() {
 	User a;
 	Movie m;
 	string s;
+	int n;
 	while(true) {
 		system("clear");
 		printHLine();
@@ -53,8 +54,30 @@ int main() {
 				cout << "1. Book Ticket for Movie" << endl;
 				cout << "2. Add new Movie to database" << endl; 
 				cout << "3. Check which Movie Tickets you already booked" << endl;
+				cout << "Enter any number (1, 2, 3): ";
 				cin >> s;
 				quit(s);
+				if(s == "1") {
+					system("clear");
+					while(true) {
+						printHLine();
+						cout << "Select which MovieYou want to book ticket for"<<endl;
+						cout << "enter 0 to cancel" << endl;
+						printHLine();
+						m.getMovies();
+						cout << "Enter id of movie you want to see: ";
+						cin >> n; 
+						if(n == 0) {
+							break;
+						}
+					}
+				}
+				if(s == "2") {
+					m.addMovie();
+				}
+				if(s == "3") {
+
+				}
 			}
 		}
 	}
