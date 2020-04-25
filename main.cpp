@@ -12,5 +12,6 @@ int main() {
 	//bool b = a.login();
 	//cout << b;
 	m.addMovie();
+	m.getMovies();
 	return 0;
 }
