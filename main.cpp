@@ -70,6 +70,12 @@ int main() {
 						if(n == 0) {
 							break;
 						}
+						m.selectMovie(n);
+						cout << m.getMovieName() << endl ;
+						cin >> n; 
+						if(n == 0) {
+							break;
+						}
 					}
 				}
 				if(s == "2") {

@@ -5,6 +5,22 @@ using namespace std;
 class Movie {
 public:
 
+	void addMovieName(string name) {
+		movieName = name;
+	}
+
+	void addMoviePrice(string price) {
+		moviePrice = price;
+	}
+
+	string getMovieName() {
+		return movieName;
+	}
+
+	string getMoviePrice() {
+		return moviePrice;
+	}
+
 	void addMovie() {
 		string line;
 		fstream fo;
@@ -45,7 +61,23 @@ public:
 		}
 	}
 
+	void selectMovie(int n) {
+		fstream fo, fo2;
+		movieId = n;
+		string name;
+		string price;
+		fo.open("MovieName.txt", ios::in|ios::out|ios::app);
+		fo2.open("MoviePrice.txt", ios::in|ios::out|ios::app);
+		for(int i = 0; i < n; i++) {
+			getline(fo,name);
+			getline(fo2,price);
+		}
+		addMovieName(name);
+		addMoviePrice(price);
+	}
+
 private:
 	int movieId;
 	string movieName;
+	string moviePrice;
 };
