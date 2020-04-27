@@ -36,19 +36,19 @@ void genTicket(string name, int price, int id, int  userId,int tickets = 1) {
 		fo << setw(60) << "Enjoy Your Show";
 	fo.close();
 	fo.open("BookedTicket.txt", ios::in|ios::out|ios::app);
-	fo << userId << " " << id << " " << name << " " << price << " " << Tickets << " "<< total_amount << endl ; 
+	fo << endl<< userId << " " << id << " " << name << " " << price << " " << Tickets << " "<< total_amount ; 
 	fo.close();
 }
 
 void getBookedTickets(int n) {
-	vector<string> v;
 	fstream fo;
 	string movie;
 	string movieName, movieId, noTickets, pricePerTicket, totalPrice;
 
 	fo.open("BookedTicket.txt", ios::in|ios::out|ios::app);
+	getline(fo, movie);
 	while(fo) {
-		getline(fo, movie);
+		vector<string> v;
 		split(movie,' ',v);
 		if(n == stoi(v[0])) {
 			movieId = v[1];
@@ -69,8 +69,10 @@ void getBookedTickets(int n) {
 				cout << "-";
 			}
 			cout << endl;
+			getline(fo, movie);
 		}
 	}
+	fo.close();
 }
 
 
