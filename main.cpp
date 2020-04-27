@@ -1,4 +1,6 @@
 #include "iostream"
+#include "vector"
+#include "sstream"
 #include "string"
 #include "User.h"
 #include "Movie.h"
@@ -6,6 +8,17 @@
 #include "Ticket.h"
 using namespace std;
 
+void split(string const &str, const char delim,
+			vector<string> &out)
+{
+	// construct a stream from the string
+	stringstream ss(str);
+
+	string s;
+	while (getline(ss, s, delim)) {
+		out.push_back(s);
+	}
+}
 
 int main() {
 	User a;
