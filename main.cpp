@@ -101,9 +101,16 @@ int main() {
 						if(cvv == 0) break;
 						cout << "Payment Successful" << endl;
 						cout << "Generating Ticket ..." << endl;
-						genTicket(m.getMovieName(), stoi(m.getMoviePrice()), n, tickets);
+						genTicket(m.getMovieName(), stoi(m.getMoviePrice()), n, a.getUserId(), tickets);
 						cout << "Ticket Generated" << endl << "Visit Again!" << endl;
-
+						cout << "Enter 0 if you want to exit or 1 if you want to visit home" << endl;
+						cin >> s;
+						if(s == "0") {
+							quit("quit");
+						}
+						if(s == "1") {
+							break;
+						}
 					}
 				}
 				if(s == "2") {

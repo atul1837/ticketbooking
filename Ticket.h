@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void genTicket(string name, int price, int id, int tickets = 1) {
+void genTicket(string name, int price, int id, int  userId,int tickets = 1) {
 	fstream fo;
 	//system("clear");
 	string total_amount = to_string(price * tickets);
@@ -23,4 +23,11 @@ void genTicket(string name, int price, int id, int tickets = 1) {
 		// cout << endl << printHline();
 		fo << setw(60) << "Enjoy Your Show";
 	fo.close();
+	fo.open("BookedTicket.txt", ios::in|ios::out|ios::app);
+	fo << userId << " " << id << " " << name << " " << price << " " << Tickets << " "<< total_amount << endl ; 
+	fo.close();
+}
+
+void getBookedTickets() {
+
 }
