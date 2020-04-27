@@ -1,7 +1,9 @@
 #include "iostream"
+#include "string"
 #include "User.h"
 #include "Movie.h"
 #include "extra.h"
+#include "Ticket.h"
 using namespace std;
 
 
@@ -71,11 +73,24 @@ int main() {
 							break;
 						}
 						m.selectMovie(n);
-						cout << m.getMovieName() << endl ;
-						cin >> n; 
-						if(n == 0) {
+						int tickets, cvv;
+						cout << "How Many Tickets Do You want to purchase ?" << endl;
+						cin >> tickets;
+						if(tickets == 0)
 							break;
-						}
+						cout << "Total Amount: " << stoi(m.getMoviePrice()) * tickets << endl; 
+						string cno;
+						cout << "Enter Debit/Credit Card Number" << endl;
+						cin >> cno;
+						if(cno == "0") break;
+						cout << "Enter CVV" << endl;
+						cin >> cvv;
+						if(cvv == 0) break;
+						cout << "Payment Successful" << endl;
+						cout << "Generating Ticket ..." << endl;
+						genTicket(m.getMovieName(), stoi(m.getMoviePrice()), n, tickets);
+						cout << "Ticket Generated" << endl << "Visit Again!" << endl;
+
 					}
 				}
 				if(s == "2") {
