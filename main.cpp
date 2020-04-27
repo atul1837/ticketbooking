@@ -8,17 +8,7 @@
 #include "Ticket.h"
 using namespace std;
 
-void split(string const &str, const char delim,
-			vector<string> &out)
-{
-	// construct a stream from the string
-	stringstream ss(str);
 
-	string s;
-	while (getline(ss, s, delim)) {
-		out.push_back(s);
-	}
-}
 
 int main() {
 	User a;
@@ -123,7 +113,16 @@ int main() {
 					m.addMovie(name, price);
 				}
 				if(s == "3") {
+					getBookedTickets(a.getUserId());
+					cout << "Do You want to continue ?(Y/N)" << endl;
+					cin >> s;
+					quit(s);
+					if(s=="Y"||s=="y") {
 
+					}
+					if(s=="n"||s=="N") {
+						quit("quit");
+					}
 				}
 			}
 		}

@@ -5,6 +5,18 @@
 
 using namespace std;
 
+void split(string const &str, const char delim,
+			vector<string> &out)
+{
+	// construct a stream from the string
+	stringstream ss(str);
+
+	string s;
+	while (getline(ss, s, delim)) {
+		out.push_back(s);
+	}
+}
+
 void genTicket(string name, int price, int id, int  userId,int tickets = 1) {
 	fstream fo;
 	//system("clear");
@@ -28,6 +40,42 @@ void genTicket(string name, int price, int id, int  userId,int tickets = 1) {
 	fo.close();
 }
 
-void getBookedTickets() {
+void getBookedTickets(int n) {
+	vector<string> v;
+	fstream fo;
+	string movie;
+	string movieName, movieId, noTickets, pricePerTicket, totalPrice;
 
+	fo.open("BookedTicket.txt", ios::in|ios::out|ios::app);
+	while(fo) {
+		getline(fo, movie);
+		split(movie,' ',v);
+		if(n == stoi(v[0])) {
+			movieId = v[1];
+			movieName = v[2];
+			pricePerTicket = v[3];
+			noTickets = v[4];
+			totalPrice = v[5];
+			for(int i= 0;i<60;i++) {
+				cout << "-";
+			}
+			cout << endl;
+			cout << "Movie Id: "<< movieId << endl;
+			cout << "Movie Name: " << movieName << endl;
+			cout << "Price per ticket: " << pricePerTicket << endl;
+			cout << "No of tickets: " << noTickets << endl;
+			cout << "Total Amount: " << totalPrice << endl;
+			for(int i= 0;i<60;i++) {
+				cout << "-";
+			}
+			cout << endl;
+		}
+	}
 }
+
+
+
+
+			
+		
+		
