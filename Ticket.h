@@ -69,8 +69,8 @@ void getBookedTickets(int n) {
 				cout << "-";
 			}
 			cout << endl;
-			getline(fo, movie);
 		}
+		getline(fo, movie);
 	}
 	fo.close();
 }
